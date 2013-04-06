@@ -37,6 +37,20 @@ describe "User pages" do
 				expect { click_button submit }.to change(User, :count).by(1)
 			end
 		end
+
+		describe "with invalid information" do
+
+			describe "after submission" do
+				before { click_button submit}
+
+				it { should have_selector('title', text: 'Sign up')}
+				it { should have_content("Password digest can't be blank")}
+				it { should have_content("Email can't be blank")}
+				it { should have_content("Name can't be blank")}
+				it { should have_content("Password confirmation can't be blank")}
+				#additional error messages can be added here
+			end
+		end
 	end
 
 end
