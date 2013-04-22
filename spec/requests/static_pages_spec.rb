@@ -29,6 +29,13 @@ describe "Home page" do
 				page.should have_selector("li##{item.id}", text: item.content)
 			end
 		end
+		it "should render the user's feed" do
+		  user.feed.paginate(page: 1).each do |item|
+		    page.should have_selector("li##{item.id}", text: item.content)
+		  end
+		end
+
+		
 	end
 end
 

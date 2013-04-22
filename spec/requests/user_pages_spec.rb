@@ -70,6 +70,7 @@ describe "User pages" do
 			it { should have_content(m2.content) }
 			it { should have_content(user.microposts.count) }
 		end
+
 	end
 
 
@@ -154,6 +155,8 @@ describe "User pages" do
 			it { should have_link('Sign out', href: signout_path) }
 			specify { user.reload.name.should == new_name }
 			specify { user.reload.email.should == new_email }
+
+			
 		end
 	end
 	
